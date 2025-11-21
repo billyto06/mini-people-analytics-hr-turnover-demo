@@ -1,6 +1,6 @@
-# Mini People Analytics Dashboard – Headcount and Turnover
+# Mini People Analytics Dashboard: Headcount and Turnover
 
-This project is a small, synthetic “Workday style” HR dataset built in Excel.  
+This project is a small, synthetic "Workday style" HR dataset built in Excel.  
 It uses VBA, Power Query, and PivotTables to show:
 
 - Current headcount by department  
@@ -50,12 +50,12 @@ Columns:
 - `Location`  
   - Example values: Seattle Clinic, Bellevue Clinic, Renton Clinic, Tacoma Clinic  
 - `HireDate`  
-  - Random dates between 2022-01-01 and 2025-11-01  
+  - Random dates between 2022 01 01 and 2025 11 01  
 - `TermDate`  
   - Blank if the employee is still active  
   - If populated, always after the HireDate  
 - `EmploymentType`  
-  - Full-time, Part-time, Per diem  
+  - Full time, Part time, Per diem  
 - `FTE`  
   - Typical values such as 1.0, 0.9, 0.8, 0.6, 0.5, 0.3 etc.  
 - `TerminationReason`  
@@ -83,17 +83,17 @@ Core steps in Power Query:
 
 2. **HireMonth**  
    - Month bucket of the hire date  
-   - Example: if `HireDate` = 2023-04-15, `HireMonth` = 2023-04-01  
+   - Example: if `HireDate` = 2023 04 15, `HireMonth` = 2023 04 01  
 
 3. **TermMonth**  
    - Month bucket of the termination date  
-   - Example: if `TermDate` = 2024-06-17, `TermMonth` = 2024-06-01  
+   - Example: if `TermDate` = 2024 06 17, `TermMonth` = 2024 06 01  
    - Used for grouping turnover counts by month
 
 4. **TenureDays**  
    - Number of days between `HireDate` and either:
      - `TermDate` if the employee has left  
-     - A fixed “as of” date (for example 2025-11-01) if still active  
+     - A fixed "as of" date (for example 2025 11 01) if still active  
 
 After loading back to Excel as `employees_model`, one more helper column is added directly in the sheet:
 
@@ -153,53 +153,7 @@ It can be converted to years for easier interpretation, but days are acceptable 
 
 ---
 
-## How to Use This Workbook
+## Screenshots
 
-### 1. Generate or Regenerate Synthetic Data
-
-1. Open the workbook.  
-2. Press `Alt + F8` to open the Macro dialog.  
-3. Run `BuildEmployeesRaw`.  
-4. This will:
-   - Clear and rebuild the `employees_raw` sheet  
-   - Populate a new set of 80 to 120 synthetic employees  
-   - Recreate the `EmployeesRaw` table
-
-### 2. Refresh the Model
-
-After rebuilding the raw data:
-
-1. Go to the **Data** tab.  
-2. Click **Refresh All**.  
-3. The `employees_model` query and all PivotTables will update.
-
-### 3. Explore the Dashboard
-
-- Use the headcount view to see how many active staff each department has.  
-- Use the turnover view to see who left and when.  
-- Use slicers for `Department`, `TerminationReason`, or `EmploymentType` to slice the data interactively.
-
----
-
-## Adapting This To Real HR Data
-
-To swap in real data:
-
-1. Replace the rows in `employees_raw` with an export from your HR system.  
-   - Keep the same column names and basic structure.  
-2. Make sure the table still has the name `EmployeesRaw`.  
-3. Refresh the Power Query model and PivotTables.  
-
-Without changing the visuals, the same workbook will now analyze real headcount and turnover.
-
----
-
-## Tools Used
-
-- Microsoft Excel  
-- VBA for synthetic data generation  
-- Power Query for data cleaning and calculated columns  
-- PivotTables and charts for headcount and turnover visuals  
-
-This project is meant as a compact example of people analytics using common tools that appear in HR data analyst roles.
+<img width="518" height="366" alt="image" src="https://github.com/user-attachments/assets/90ba9df2-2c46-4351-a9e7-e1f742c109dd" />
 
