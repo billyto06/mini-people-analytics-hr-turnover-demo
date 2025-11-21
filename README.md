@@ -155,5 +155,5 @@ It can be converted to years for easier interpretation, but days are acceptable 
 
 ## Screenshots
 
-<img width="518" height="366" alt="image" src="https://github.com/user-attachments/assets/90ba9df2-2c46-4351-a9e7-e1f742c109dd" />
+<img width="1630" height="620" alt="image" src="https://github.com/user-attachments/assets/1ac8f0e6-84fe-4e27-b3cb-a1c417bade36" />
 
